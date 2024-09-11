@@ -317,6 +317,8 @@ router.put('/:idodp', async (req, res) => {
     req.body.idsektor = Number(req.body.idsektor); // Konversi idsektor menjadi angka jika ada
   }
 
+  //gebi ganteng
+
   const schema = {
     namaodp: 'string|optional',
     idsektor: 'number|optional'
