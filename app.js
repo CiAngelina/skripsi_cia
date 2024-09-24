@@ -46,7 +46,7 @@ app.use('/odp', odpRouter);
 app.use('/login',loginRouter);
 app.use('/tiket',tiketRouter);
 
-
+require('./cron/resetTeknisiTiket'); 
 
 module.exports = app;
 

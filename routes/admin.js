@@ -260,9 +260,9 @@ router.put('/:idadmin', async (req, res) => {
 
     // Pastikan data yang dikirimkan tidak berupa string kosong
     const schema = {
-      nama: { type: 'string|optional', min: 1 },
-      username: { type: 'string|optional', min: 1 },
-      pass: { type: 'string|optional', min: 1 }
+      nama: { type: 'string', optional: true, min: 1 },
+      username: { type: 'string', optional: true, min: 1 },
+      pass: { type: 'string', optional: true, min: 1 }
     };
 
     const validate = v.validate(req.body, schema);

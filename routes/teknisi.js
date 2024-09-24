@@ -356,13 +356,13 @@ router.put('/:idteknisi', async (req, res) => {
   }
 
   const schema = {
-    nama: { type: "string|optional", empty: false, min: 1 },
-    sektor: { type: "string|optional", empty: false, min: 1 },
-    ket: { type: "string|optional", empty: false, min: 1 },
-    username: { type: "string|optional", empty: false, min: 1 },
-    pass: { type: "string|optional", empty: false, min: 1 }
+    nama: { type: "string", optional: true, empty: false, min: 1 },
+    sektor: { type: "string", optional: true, empty: false, min: 1 },
+    ket: { type: "string", optional: true, empty: false, min: 1 },
+    username: { type: "string", optional: true, empty: false, min: 1 },
+    pass: { type: "string", optional: true, empty: false, min: 1 }
   };
-
+  
   const validasi = v.validate(req.body, schema);
 
   if (validasi.length) {
