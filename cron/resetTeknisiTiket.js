@@ -47,7 +47,7 @@ const { Teknisi, Tiket } = require('../models'); // Import model Teknisi dan Tik
 async function calculateWP() {
     try {
         const tiketBelumSelesai = await Tiket.findAll({
-            where: { wpStatus: 'aktif' } // Hanya tiket yang aktif
+            where: { wpStatus: 'In Progress' } // Hanya tiket yang aktif
         });
 
         for (const tiket of tiketBelumSelesai) {
@@ -89,3 +89,6 @@ cron.schedule('0 17 * * *', async () => {
 }, {
     timezone: 'Asia/Jakarta'
 });
+// Reset dilihat status nyaa dulu, kalo misalkan ada yang belum selesai pada hari ini, namun dikerjakan besok, ditunggu 
+// Sampai selesaii, agar reset data aman.
+// Mengubah status otomatis not ke ava

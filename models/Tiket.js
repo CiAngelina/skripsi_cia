@@ -1,13 +1,9 @@
 module.exports = (sequelize, DataTypes) => {
     const Tiket = sequelize.define('Tiket', {
-      idtiket: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-      },
       nomortiket: {
         type: DataTypes.STRING,
+        primaryKey: true,
+        autoIncrement: false,
         allowNull: false
       },
       nomorinternet: {
@@ -18,10 +14,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
          allowNull: false,
      },
-     notepelanggan: {
-      type: DataTypes.STRING,
-       allowNull: false,
-   },
       tipetiket: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -30,29 +22,25 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    ket: {
-     type: DataTypes.STRING,
-      allowNull: false,
-  },
       idpelanggan: {
         type: DataTypes.STRING,
-        allowNull: true,
+        allowNull: false,
         references: {
           model: 'Pelanggan', // nama tabel referensi
           key: 'idpelanggan' // nama kolom primary key pada tabel referensi
         }
       },
       idodp: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+        type: DataTypes.STRING,
+        allowNull: false,
         references: {
           model: 'Odp', // nama tabel referensi
           key: 'idodp' // nama kolom primary key pada tabel referensi
         }
       },
       idteknisi: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+        type: DataTypes.STRING,
+        allowNull: false,
         references: {
           model: 'Teknisi', // nama tabel referensi
           key: 'idteknisi' // nama kolom primary key pada tabel referensi
@@ -74,15 +62,15 @@ module.exports = (sequelize, DataTypes) => {
     Tiket.associate = (models) => {
       Tiket.belongsTo(models.Pelanggan, {
         foreignKey: 'idpelanggan',
-        onDelete: 'SET NULL'
+        onDelete: 'CASCADE'
       });
       Tiket.belongsTo(models.Odp, {
         foreignKey: 'idodp',
-        onDelete: 'SET NULL'
+        onDelete: 'CASCADE'
       });
       Tiket.belongsTo(models.Teknisi, {
         foreignKey: 'idteknisi',
-        onDelete: 'SET NULL'
+        onDelete: 'CASCADE'
       });
     };
   

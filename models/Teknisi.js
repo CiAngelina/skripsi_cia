@@ -1,16 +1,12 @@
 module.exports = (sequelize, DataTypes) => {
     const Teknisi = sequelize.define('Teknisi', {
         idteknisi: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: false,
             allowNull: false
           },
           nama: {
-            type: DataTypes.STRING,
-            allowNull: false
-          },
-          sektor: {
             type: DataTypes.STRING,
             allowNull: false
           },
@@ -23,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
           },
           pass: {
+            type: DataTypes.STRING,
+            allowNull: false
+          },
+          kehadiran: {
             type: DataTypes.STRING,
             allowNull: false
           },

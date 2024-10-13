@@ -4,14 +4,10 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('tiket', { 
-      idtiket: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true,
-        allowNull: false
-      },
       nomortiket: {
         type: Sequelize.STRING,
+        primaryKey: true,
+        autoIncrement: false,
         allowNull: false
       },
       nomorinternet: {
@@ -19,10 +15,6 @@ module.exports = {
         allowNull: false,
       },
     keluhan: {
-      type: Sequelize.STRING,
-      allowNull: false
-    },
-    notepelanggan: {
       type: Sequelize.STRING,
       allowNull: false
     },
@@ -34,21 +26,17 @@ module.exports = {
       type: Sequelize.STRING,
       allowNull: false,
     },
-    ket: {
-      type: Sequelize.STRING,
-      allowNull: false,
-    },
       idpelanggan: {  // foreign key
         type: Sequelize.STRING,
-        allowNull: true,
+        allowNull: false,
         references: {
         model: 'pelanggan',  // Nama tabel yang akan dijadikan referensi
         key: 'idpelanggan',       // Nama kolom pada tabel referensi
       },
     },
      idodp: {  //foreign key
-       type: Sequelize.INTEGER,
-       allowNull: true,
+       type: Sequelize.STRING,
+       allowNull: false,
        references: {
        model: 'odp',  
        key: 'idodp',       
@@ -56,8 +44,8 @@ module.exports = {
     },
 
     idteknisi: {  //foreign key
-      type: Sequelize.INTEGER,
-      allowNull: true,
+      type: Sequelize.STRING,
+      allowNull: false,
       references: {
       model: 'teknisi',  
       key: 'idteknisi',       

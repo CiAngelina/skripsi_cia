@@ -5,16 +5,12 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.createTable('teknisi', { 
       idteknisi: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         primaryKey: true,
-        autoIncrement: true,
+        autoIncrement: false,
         allowNull: false
       },
       nama: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      sektor: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -27,6 +23,10 @@ module.exports = {
         allowNull: false,
       },
       pass: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      kehadiran: {
         type: Sequelize.STRING,
         allowNull: false
       },
